@@ -45,17 +45,23 @@ def Main():
     answer, list = pick_answer()
     print(len(answer))
     Turns = 0
-    while Turns < 5:
+    win = False
+    while Turns < 5 and not win:
         guess = input("guess: ").lower()
         while checkWords(list, guess) == False:
             guess = input("guess: ").lower()
         result = check(answer, guess)
         print(result)
-        if checkWin(answer, guess):
-            print("win")
-            Turns = 4
+        win = checkWin(answer, guess)
         Turns += 1
-    print(answer)
+    if win:
+        print("win")
+    else:
+        print(answer)
+
+
+
+        
 Main()
         
 
