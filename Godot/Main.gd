@@ -9,7 +9,7 @@ var Seven_letterGuesses = ['barrier', 'binding', 'breaker', 'chimera', 'culling'
 var Four_LetterAnswer = ["amai", 'fumi',  'gege', 'geto', 'gojo', 'haba', 'hana', 'hari', 'iori', 'jiro', 'jogo', 'juzo', 'kamo', 'kong', 'maki', 'miwa', 'miyo', 'momo', 'muta', 'nagi', 'negi', 'niji', 'remi', 'rika', 'riko',  'shiu', 'suda', 'todo', 'toge', 'toji',  'veil', 'yaga', 'yuji', 'yuki', 'yuko', 'yuta']
 var Five_letterAnswer = ['agito', 'akari', 'choso', 'cyrus', 'daido', 'dagon', 'dhruv',  'ebina', 'hanyu', 'hoshi', 'garry',  'ieiri', 'kaori', 'keita', 'kento', 'kinji', 'kokun', 'kuroi', 'larue', 'naoya', 'nitta',  'ogami', 'ozawa', 'panda', 'ranta', 'saori', 'shino', 'shoko', 'shota', 'usami', 'zenin']
 var Six_letterAnswer = ['amanai', 'atsuya', 'hagane', 'hajime', 'hakari', 'hanami', 'hasaba', 'haruta', 'hiromi', 'iguchi', 'ijichi', 'junpei', 'kanada', 'kasumi', 'kirara', 'kogane', 'kumiya', 'kusuru', 'mahito', 'manami', 'megumi', 'miguel', 'mimiko', 'misato',  'nanako', 'nanami', 'nobara', 'nobuko', 'reggie', 'ryomen', 'sasaki', 'satoru', 'sonada', 'suguru', 'sukuna', 'taichi', 'takada', 'takaba', 'takagi', 'takako', 'takeda', 'takeru', 'takuma', 'tengen', 'uraume', 'wasuke', 'yorozu']
-var Seven_letterAnswer = ['akutami', 'awasaka',  'bernard', 'charles', 'chizuru', 'chojuro', 'haibara', 'itadori', 'jinichi', 'johnson', 'kashimo', 'kechizu', 'kenjaku', 'kokichi', 'noabito', 'nobuaki', 'okazaki', 'okkostsu', 'orimoto', 'setsuko',  'shigemo', 'shigeru', 'tadashi', 'takeshi', 'tsukumo', 'tsumiki',  'utahime', 'yoshino'] 
+var Seven_letterAnswer = ['akutami', 'awasaka',  'bernard', 'charles', 'chizuru', 'chojuro', 'haibara', 'itadori', 'jinichi', 'johnson', 'kashimo', 'kechizu', 'kenjaku', 'kokichi', 'noabito', 'nobuaki', 'okazaki', 'okkotsu', 'orimoto', 'setsuko',  'shigemo', 'shigeru', 'tadashi', 'takeshi', 'tsukumo', 'tsumiki',  'utahime', 'yoshino'] 
 
 var Four_Letter = Four_LetterAnswer + Four_LetterGuesses
 var Five_letter = Five_letterAnswer + Five_letterGuesses
@@ -75,7 +75,7 @@ func _input(event):
 	if event is InputEventKey and char(event.unicode) != "" and cur_x < x_amount and Input.is_action_just_pressed("letters"):
 		box_array[cur_y][cur_x].set_text(char(event.unicode))
 		cur_x += 1
-	elif Input.is_action_just_pressed("backspace"):
+	elif Input.is_action_just_pressed("backspace") and cur_x > 0:
 		cur_x -= 1
 		box_array[cur_y][cur_x].set_text("")
 	elif Input.is_action_just_pressed("confirm") and checkWords(list, getContents(cur_y)):
