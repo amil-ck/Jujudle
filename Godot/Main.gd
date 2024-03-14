@@ -72,7 +72,7 @@ func getContents(cur_y):
 	return guess
 
 func _input(event):
-	if event is InputEventKey and char(event.unicode) != "" and cur_x < x_amount:
+	if event is InputEventKey and char(event.unicode) != "" and cur_x < x_amount and Input.is_action_just_pressed("letters"):
 		box_array[cur_y][cur_x].set_text(char(event.unicode))
 		cur_x += 1
 	elif Input.is_action_just_pressed("backspace"):
