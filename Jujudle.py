@@ -1,13 +1,32 @@
 import random
 
-Four_Letter = ['amai', 'area', 'bash', 'beat', 'blue', 'body', 'bone', 'calm', 'clan', 'club', 'cell', 'deer', 'doll', 'eyes', 'fist', 'fumi', 'game', 'gege', 'geto', 'gojo', 'haba', 'hana', 'hari', 'idle', 'imai', 'iori', 'jiro', 'jogo', 'juzo', 'kamo', 'kick', 'king', 'kong', 'love', 'maki', 'miwa', 'miyo', 'mode', 'momo', 'moon', 'muta', 'nagi', 'negi', 'niji', 'race', 'rage', 'remi', 'rika', 'riko', 'saki', 'sila', 'shiu', 'solo', 'soul', 'spin', 'star', 'suda', 'time', 'thin', 'toad', 'todo', 'toge', 'toji', 'tool', 'void', 'well', 'wind', 'wing', 'womb', 'veil', 'yaga', 'yuji', 'yuki', 'yuko', 'yuta']
-Five_letter = ['abyss', 'acrux', 'agito', 'akari', 'amber', 'angel', 'batto', 'beast', 'black', 'blast', 'blood', 'choso', 'cloud', 'curse', 'cyrus', 'dagon', 'daido', 'death', 'decay', 'deity', 'demon', 'dhruv', 'dregs', 'ebina', 'ember', 'flash', 'frost', 'hanyu', 'hoshi', 'garry', 'ginan', 'grade', 'great', 'group', 'hiten', 'human', 'ieiri', 'kaito', 'kaori', 'keita', 'kento', 'kinji', 'kokun', 'kuroi', 'kyoto', 'larue', 'manji', 'naoya', 'night', 'nitta', 'oboro', 'ogami', 'ozawa', 'panda', 'ranta', 'ratio', 'realm', 'reiki', 'rindo', 'round', 'saori', 'scale', 'shino', 'shoko', 'shota', 'spear', 'split', 'straw', 'sword', 'tides', 'tiger', 'ultra', 'viola', 'zenin', 'zetsu']
-Six_letter = ['amanai', 'atsuya', 'basket', 'beasts', 'boogie', 'cannon', 'cursed', 'divine', 'demons', 'domain', 'dragon', 'finger', 'flames', 'gacrux', 'garuda', 'hagane', 'hajime', 'hakari', 'hanami', 'hasaba', 'haruta', 'heaven', 'hiromi', 'hollow', 'iguchi', 'ijichi', 'innate', 'isomer', 'jacobs', 'junpei', 'kaichi', 'kaisen', 'kanada', 'kasumi', 'katana', 'kirara', 'kogane', 'kumiya', 'kusuru', 'ladder', 'mahito', 'manami', 'megumi', 'merged', 'merger', 'meteor', 'miguel', 'mimiko', 'mimosa', 'misato', 'nagino', 'nanako', 'nanami', 'nobara', 'nobuko', 'occult', 'option', 'palace', 'parade', 'pigeon', 'plants', 'prison', 'puppet', 'purple', 'rabbit', 'reggie', 'ryomen', 'sasaki', 'satoru', 'scythe', 'seance', 'sendai', 'simple', 'shadow', 'shield', 'shrine', 'sonada', 'speech', 'spirit', 'suguru', 'sukuna', 'summon', 'taichi', 'takada', 'takaba', 'takagi', 'takako', 'takeda', 'takeru', 'takuma', 'tengen', 'uraume', 'vessel', 'wasuke', 'wicker', 'woogie', 'yorozu']
-Seven_letter = ['akutami', 'awasaka', 'barrier', 'bernard', 'binding', 'breaker', 'charles', 'chimera', 'chizuru', 'chojuro', 'culling', 'curtain', 'funeral', 'flowing', 'gorilla', 'granite', 'haibara', 'hairpin', 'horizon', 'hundred', 'icefall', 'itadori', 'instant', 'insects', 'jinichi', 'johnson', 'jujutsu', 'kashimo', 'kechizu', 'kenjaku', 'kensuke', 'killing', 'kokichi', 'maximum', 'miracle', 'noabito', 'nobuaki', 'okazaki', 'okinawa', 'okkostsu', 'orimoto', 'playful', 'rainbow', 'reverse', 'serpent', 'setsuko', 'shadows', 'shibuya', 'shigemo', 'shigeru', 'skandha', 'sorcery', 'tadashi', 'takeshi', 'tsukumo', 'tsumiki', 'unknown', 'utahime', 'uzumaki', 'yoshino']
+Four_LetterGuesses = ['area', 'bash', 'beat', 'blue', 'body', 'bone', 'calm', 'clan', 'club', 'cell', 'deer', 'doll', 'eyes', 'fist', 'game', 'idle', 'imai', 'kick', 'king', 'love', 'mode', 'moon', 'race', 'rage', 'saki', 'sila', 'solo', 'soul', 'spin', 'star', 'time', 'thin', 'toad', 'tool', 'void', 'well', 'wind', 'wing', 'womb']
+Five_letterGuesses = ['abyss', 'acrux', 'amber', 'angel', 'batto', 'beast', 'black', 'blast', 'blood', 'cloud', 'curse', 'death', 'decay', 'deity', 'demon', 'dregs', 'ember', 'flash', 'frost', 'ginan', 'grade', 'great', 'group', 'hiten', 'human', 'kaito', 'kyoto', 'manji', 'night', 'oboro', 'ratio', 'realm', 'reiki', 'rindo', 'round', 'scale', 'spear', 'split', 'straw', 'sword', 'tides', 'tiger', 'ultra', 'viola', 'zetsu']
+Six_letterGuesses = ['basket', 'beasts', 'boogie', 'cannon', 'cursed', 'divine', 'demons', 'domain', 'dragon', 'finger', 'flames', 'gacrux', 'garuda', 'heaven', 'hollow', 'innate', 'isomer', 'jacobs', 'kaichi', 'kaisen', 'katana', 'ladder', 'merged', 'merger', 'meteor',  'mimosa', 'nagino', 'occult', 'option', 'palace', 'parade', 'pigeon', 'plants', 'prison', 'puppet', 'purple', 'rabbit', 'scythe', 'seance', 'sendai', 'simple', 'shadow', 'shield', 'shrine', 'speech', 'spirit', 'summon', 'vessel', 'wicker', 'woogie']
+Seven_letterGuesses = ['barrier', 'binding', 'breaker', 'chimera', 'culling', 'curtain', 'funeral', 'flowing', 'gorilla', 'granite', 'hairpin', 'horizon', 'hundred', 'icefall', 'instant', 'insects', 'jujutsu', 'kensuke', 'killing', 'maximum', 'miracle', 'okinawa', 'playful', 'rainbow', 'reverse', 'serpent', 'shadows', 'shibuya', 'skandha', 'sorcery', 'unknown', 'uzumaki']
+
+Four_LetterAnswer = ["amai", 'fumi',  'gege', 'geto', 'gojo', 'haba', 'hana', 'hari', 'iori', 'jiro', 'jogo', 'juzo', 'kamo', 'kong', 'maki', 'miwa', 'miyo', 'momo', 'muta', 'nagi', 'negi', 'niji', 'remi', 'rika', 'riko',  'shiu', 'suda', 'todo', 'toge', 'toji',  'veil', 'yaga', 'yuji', 'yuki', 'yuko', 'yuta']
+Five_letterAnswer= ['agito', 'akari', 'choso', 'cyrus', 'daido', 'dagon', 'dhruv',  'ebina', 'hanyu', 'hoshi', 'garry',  'ieiri', 'kaori', 'keita', 'kento', 'kinji', 'kokun', 'kuroi', 'larue', 'naoya', 'nitta',  'ogami', 'ozawa', 'panda', 'ranta', 'saori', 'shino', 'shoko', 'shota', 'usami' 'zenin']
+Six_letterAnswer = ['amanai', 'atsuya', 'hagane', 'hajime', 'hakari', 'hanami', 'hasaba', 'haruta', 'hiromi', 'iguchi', 'ijichi', 'junpei', 'kanada', 'kasumi', 'kirara', 'kogane', 'kumiya', 'kusuru', 'mahito', 'manami', 'megumi', 'miguel', 'mimiko', 'misato',  'nanako', 'nanami', 'nobara', 'nobuko', 'reggie', 'ryomen', 'sasaki', 'satoru', 'sonada', 'suguru', 'sukuna', 'taichi', 'takada', 'takaba', 'takagi', 'takako', 'takeda', 'takeru', 'takuma', 'tengen', 'uraume', 'wasuke', 'yorozu']
+Seven_letterAnswer = ['akutami', 'awasaka',  'bernard', 'charles', 'chizuru', 'chojuro', 'haibara', 'itadori', 'jinichi', 'johnson', 'kashimo', 'kechizu', 'kenjaku', 'kokichi', 'noabito', 'nobuaki', 'okazaki', 'okkostsu', 'orimoto', 'setsuko',  'shigemo', 'shigeru', 'tadashi', 'takeshi', 'tsukumo', 'tsumiki',  'utahime', 'yoshino'] 
+
+Four_Letter = Four_LetterAnswer + Four_LetterGuesses
+Five_letter = Five_letterAnswer + Five_letterGuesses
+Six_letter = Six_letterAnswer + Six_letterGuesses
+Seven_letter = Seven_letterAnswer + Seven_letterGuesses
+
+Lists = {
+    4 : Four_Letter,
+    5 : Five_letter,
+    6 : Six_letter,
+    7 : Seven_letter
+}
+
+All_Answers = Four_LetterAnswer + Five_letterAnswer + Six_letterAnswer + Seven_letterAnswer
 
 def pick_answer():
-    list = [Four_Letter, Five_letter, Six_letter, Seven_letter][random.randint(0, 3)]
-    answer = list[random.randint(0, len(list))]
+    answer = All_Answers[random.randint(0, len(All_Answers))]
+    list = Lists[len(answer)]
 
     return answer, list
 
