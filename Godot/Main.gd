@@ -31,8 +31,8 @@ var BOX = load("Box.tscn")
 
 var x_offset
 
-var x_apart = 60
-var y_apart = 60
+var x_apart = 50
+var y_apart = 50
 
 var x_amount = 5
 var y_amount = 6
