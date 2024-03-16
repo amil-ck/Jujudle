@@ -29,8 +29,10 @@ var All_Answers = Four_LetterAnswer + Five_letterAnswer + Six_letterAnswer + Sev
 
 var BOX = load("Box.tscn")
 
-var x_apart = 50
-var y_apart = 50
+var x_offset
+
+var x_apart = 60
+var y_apart = 60
 
 var x_amount = 5
 var y_amount = 6
@@ -53,11 +55,12 @@ func _ready():
 	answer = Set[0]
 	list = Set[1]
 	x_amount = len(answer)
+	x_offset = (get_viewport().size.x / 2) - (x_apart * x_amount / 2)
 	for y in range(y_amount):
 		var y_list = []
 		for x in range(x_amount):
 				var box = BOX.instance()
-				box.position = Vector2((x_apart * x), (y_apart * y))
+				box.position = Vector2(x_offset + (x_apart * x), (y_apart * y))
 				add_child(box)
 				
 				y_list.append(box)
@@ -82,8 +85,11 @@ func _input(event):
 		guess = getContents(cur_y)
 		var result = check(answer, guess)
 		change_colour(result)
-		cur_y += 1
-		cur_x = 0
+		if cur_y < 5:
+			cur_y += 1
+			cur_x = 0
+		else:
+			$Label.text = "The answer was: " + answer
 		
 func replacer(word, index):
 	word[index] = " "
@@ -111,7 +117,7 @@ func check(answer, guess):
 
 	for x in range(len(answer)):
 		for y in range(len(answer)):
-			if guess[x] == answer[y]:
+			if guess[x] == answer[y] and result[x] != "red":
 				result[x] = "blue"
 				answer = replacer(answer, y)
 				break
