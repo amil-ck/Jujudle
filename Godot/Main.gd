@@ -55,7 +55,10 @@ func _ready():
 	answer = Set[0]
 	list = Set[1]
 	x_amount = len(answer)
-	x_offset = (get_viewport().size.x / 2) - (x_apart * x_amount / 2)
+	x_offset = (get_viewport().size.x / 2) - (x_apart * x_amount / 2) + 5
+	
+	######################################################################
+	
 	for y in range(y_amount):
 		var y_list = []
 		for x in range(x_amount):
@@ -66,6 +69,10 @@ func _ready():
 				y_list.append(box)
 		
 		box_array.append(y_list)
+		
+	##########################################################################
+	
+	
 
 
 func getContents(cur_y):
@@ -127,3 +134,7 @@ func check(answer, guess):
 func change_colour(result):
 	for i in range(len(result)):
 		box_array[cur_y][i].play_anim(result[i])
+
+
+func _on_Button_pressed():
+	$Label.text = "Somebody pressed the button"
