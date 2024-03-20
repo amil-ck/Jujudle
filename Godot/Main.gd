@@ -50,7 +50,7 @@ var answer = "hello"
 
 var list
 
-var button_inital = Vector2(330, 350)
+var button_inital = Vector2(-150, 50)
 
 var guess = ""
 # Called when the node enters the scene tree for the first time.
@@ -81,14 +81,14 @@ func _ready():
 		
 	##########################################################################
 	var button_y = 0
-	var button_x = 0
+	var button_x = -30
 	for i in range(len(letter_list)):
 		if i == 10:
 			button_y = 45
-			button_x = 0
+			button_x = -30
 		elif i == 19:
 			button_y = 90
-			button_x = 0
+			button_x = -30
 		
 		button_x += 30
 		
@@ -96,7 +96,7 @@ func _ready():
 		button.text = letter_list[i]
 		button.rect_position = button_inital + Vector2(button_x, button_y)
 		button.main = self
-		add_child(button)
+		$CanvasLayer/Buttons.add_child(button)
 
 func enter_letter(letter):
 	if cur_x < x_amount:
