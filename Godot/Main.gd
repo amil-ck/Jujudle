@@ -124,7 +124,7 @@ func _input(event):
 			cur_y += 1
 			cur_x = 0
 		else:
-			$Label.text = "The answer was: " + answer
+			$CanvasLayer/Buttons/Label.text = "The answer was: " + answer
 		
 func replacer(word, index):
 	word[index] = " "
