@@ -12,10 +12,19 @@ margin_right = 313.0
 margin_bottom = 390.0
 text = "test"
 
-[node name="Button" type="Button" parent="."]
-margin_left = 240.0
-margin_top = 404.0
-margin_right = 334.0
-margin_bottom = 455.0
+[node name="backspace" type="Button" parent="."]
+margin_left = 629.0
+margin_top = 396.0
+margin_right = 719.0
+margin_bottom = 436.0
+text = "backspace"
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[node name="enter" type="Button" parent="."]
+margin_left = 570.0
+margin_top = 442.0
+margin_right = 660.0
+margin_bottom = 482.0
+text = "Enter"
+
+[connection signal="pressed" from="backspace" to="." method="_on_backspace_pressed"]
+[connection signal="pressed" from="enter" to="." method="_on_enter_pressed"]

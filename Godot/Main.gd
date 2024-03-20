@@ -25,9 +25,13 @@ var Lists = {
 
 var All_Answers = Four_LetterAnswer + Five_letterAnswer + Six_letterAnswer + Seven_letterAnswer
 
+var letter_list = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"]
+var letter_dict = {}
+
 ##################################################################################
 
 var BOX = load("Box.tscn")
+var LETTER_BUTTON = load("Letter_Button.tscn")
 
 var x_offset
 
@@ -46,6 +50,8 @@ var answer = "hello"
 
 var list
 
+var button_inital = Vector2(330, 350)
+
 var guess = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,7 +62,10 @@ func _ready():
 	list = Set[1]
 	x_amount = len(answer)
 	x_offset = (get_viewport().size.x / 2) - (x_apart * x_amount / 2) + 5
-	
+
+	#####################################################################
+	for i in letter_list:
+		letter_dict[i] = "black"
 	######################################################################
 	
 	for y in range(y_amount):
@@ -71,9 +80,28 @@ func _ready():
 		box_array.append(y_list)
 		
 	##########################################################################
-	
-	
+	var button_y = 0
+	var button_x = 0
+	for i in range(len(letter_list)):
+		if i == 10:
+			button_y = 45
+			button_x = 0
+		elif i == 19:
+			button_y = 90
+			button_x = 0
+		
+		button_x += 30
+		
+		var button = LETTER_BUTTON.instance()
+		button.text = letter_list[i]
+		button.rect_position = button_inital + Vector2(button_x, button_y)
+		button.main = self
+		add_child(button)
 
+func enter_letter(letter):
+	if cur_x < x_amount:
+		box_array[cur_y][cur_x].set_text(letter)
+		cur_x += 1
 
 func getContents(cur_y):
 	var guess = ""
@@ -136,5 +164,19 @@ func change_colour(result):
 		box_array[cur_y][i].play_anim(result[i])
 
 
-func _on_Button_pressed():
-	$Label.text = "Somebody pressed the button"
+func _on_backspace_pressed():
+	if cur_x > 0:
+		cur_x -= 1
+		box_array[cur_y][cur_x].set_text("")
+
+
+func _on_enter_pressed():
+	if checkWords(list, getContents(cur_y)):
+		guess = getContents(cur_y)
+		var result = check(answer, guess)
+		change_colour(result)
+		if cur_y < 5:
+			cur_y += 1
+			cur_x = 0
+		else:
+			$Label.text = "The answer was: " + answer
