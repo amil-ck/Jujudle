@@ -188,4 +188,4 @@ func _on_enter_pressed():
 			cur_y += 1
 			cur_x = 0
 		else:
-			$Label.text = "The answer was: " + answer
+			$CanvasLayer/Buttons/Label.text = "The answer was: " + answer
