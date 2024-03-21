@@ -96,6 +96,9 @@ func _ready():
 		button.text = letter_list[i]
 		button.rect_position = button_inital + Vector2(button_x, button_y)
 		button.main = self
+		
+		letter_dict[letter_list[i]] = button
+		
 		$CanvasLayer/Buttons.add_child(button)
 
 func enter_letter(letter):
@@ -120,6 +123,7 @@ func _input(event):
 		guess = getContents(cur_y)
 		var result = check(answer, guess)
 		change_colour(result)
+		button_colour(guess, result)
 		if cur_y < 5:
 			cur_y += 1
 			cur_x = 0
@@ -163,6 +167,10 @@ func change_colour(result):
 	for i in range(len(result)):
 		box_array[cur_y][i].play_anim(result[i])
 
+func button_colour(guess, result):
+	for i in range(len(result)):
+		letter_dict[guess[i]].play_anim(result[i])
+
 
 func _on_backspace_pressed():
 	if cur_x > 0:
@@ -175,6 +183,7 @@ func _on_enter_pressed():
 		guess = getContents(cur_y)
 		var result = check(answer, guess)
 		change_colour(result)
+		button_colour(guess, result)
 		if cur_y < 5:
 			cur_y += 1
 			cur_x = 0
